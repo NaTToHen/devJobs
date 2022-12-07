@@ -23,7 +23,7 @@
          {
             //$_SESSION['email'] = $email;
             //$_SESSION['senha'] = $senha;
-            header('Location: ../index.php?login=ok');
+            header('Location: ../admin.html?login=ok');
          }
       } else {
          header('Location: ../login.php?login=erro');

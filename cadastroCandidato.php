@@ -58,6 +58,12 @@
             <input type="password" placeholder="confirmar senha" required>
             <input name="cidade" type="text" placeholder="cidade" required>
             <input name="estado" type="text" placeholder="estado" required>
+            <br>
+            <input type="radio" name="pessoa" id="pessoa" checked>
+            <label for="pessoa" style="margin-right: 20px;">Candidato</label>
+            <input type="radio" name="empresa" id="empresa">
+            <label for="empresa">Empresa</label>
+            <br>
             <button name="submit" type="submit">Efetuar Cadastro</button>
             <p>Ainda não possui uma conta? <a href="login.php">Efetuar login</a>.</p>
          </form>
