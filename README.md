@@ -1,7 +1,7 @@
 # PLATAFORMA WEB </DEVJOBS/>
 
 <div style="display: incline_block">
-  <img align="center" alt="1" width="320" height="180" src="https://github.com/NaTToHen/devJobs/blob/main/github-page/logo.svg"/>
+  <img align="center" alt="1" width="320" height="180" src="https://github.com/NaTToHen/devJobs/blob/main/github-page/logo2.svg"/>
   <br> <br>
   <img align="center" alt="1"  src="https://github.com/NaTToHen/devJobs/blob/main/github-page/landingpage.svg"/>
   <br> <br>
