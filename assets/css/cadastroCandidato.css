@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+   box-sizing: content-box;
+   font-family: 'Poppins', cursive;
+   margin: 0;
+   border-radius: 0px;
+}
+
+#esquerda {
+   float: left;
+   position: relative;
+   margin-right: 10%;
+   width: 30vw;
+   height: 100%;
+   background: linear-gradient(180deg, #00114F 0%, #0038FF 100%);
+}
+
+#esquerda img {
+   position: absolute;
+   top: 130px;
+   left: 25%;
+}
+
+#esquerda ul {
+   position: absolute;
+   top: 50%;
+   left: 5%;
+   font-size: 20px;
+}
+
+#esquerda li {
+   color: white;
+   font-weight: bold;;
+   list-style: none;
+}
+
+#esquerda li:nth-child(1) img {
+   
+   position: absolute;
+   left: 5px;
+   top: 0px;
+}
+
+#esquerda li:nth-child(2) img {
+   
+   position: absolute;
+   left: 5px;
+   top: 30px;
+}
+
+#esquerda li:nth-child(3) img {
+   
+   position: absolute;
+   left: 5px;
+   top: 60px;
+}
+
+#direita {
+   float: right;
+   margin-top: 60px;
+   width: 70%;
+}
+
+#direita form {
+   margin-left: 90px;
+}
+
+#direita p {
+   margin-top: 50px;
+   margin-left: 15%;
+}
+#direita h1 {
+   margin-left: 12%;
+   margin-bottom: 20px;
+   font-weight: bold;
+   color: #001972;
+}
+
+body {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+   display: block;
+   padding: 5px;
+   
+   width: 70%;
+   height: 35px;
+   border: solid 1px rgb(197, 197, 197);
+   border-radius: 5px;
+   outline: none;
+   margin-bottom: 15px;
+}
+
+input:nth-child(7) {
+   display: inline;
+   width: 45%;
+   margin-right: 27px;
+}
+
+input:nth-child(8) {
+   display: inline;
+   width: 20%;
+}
+
+button {
+   margin-top: 10px;
+   border-radius: 10px;
+   background: #0038FF;
+   border: none;
+   color: #FFFFFF;
+   height: 45px;
+   width: 70%;
+}
