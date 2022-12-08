@@ -1,7 +1,7 @@
 <?php
   include("lib/conexao.php");
 
-  $sqlLista = "SELECT * FROM vaga ORDER BY id_vaga LIMIT 6";
+  $sqlLista = "SELECT * FROM vaga ORDER BY id_vaga DESC LIMIT 6";
   $resultLista = $conn->query($sqlLista);
 
 ?>

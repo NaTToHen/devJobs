@@ -132,7 +132,7 @@
           echo "<td>".$user_data['empresa_vaga']."</td>";
           echo "<td>".$user_data['cidade']."-".$user_data['estado']."</td>";
           echo "<td>"."R$ ".$user_data['salario_vaga']."</td>";
-          echo "<td></a><a href='editarVaga.php?idVaga=$user_data[id_vaga]'><img src='img/icone-alterar.png' width='30px' height='30px'></a><a href='deleteVaga.php?idVaga=$user_data[id_vaga]'><img src='img/icone-excluir.png' width='30px' height='30px'></td>";
+          echo "<td></a><a href='editarVagas.php?idVaga=$user_data[id_vaga]'><img src='img/icone-alterar.png' width='30px' height='30px'></a><a href='deleteVaga.php?idVaga=$user_data[id_vaga]'><img src='img/icone-excluir.png' width='30px' height='30px'></td>";
           echo "</tr>";
         }
       ?>

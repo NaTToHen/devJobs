@@ -7,9 +7,11 @@
    $email = $_POST['email'];
    $telefone = $_POST['telefone'];
    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+   $confirmar = $_POST['confirmar'];
    $cidade = $_POST['cidade'];
    $estado = $_POST['estado'];
-
+   
+   if($_POST['senha'] == $_POST['confirmar']) {
    $result = mysqli_query($conn, "INSERT INTO usuario(nome_usuario, email_usuario, senha_usuario, telefone_usuario, cidade, estado) VALUES ('$nome','$email','$senha','$telefone','$cidade','$estado')");
 
         if(mysqli_affected_rows($conn) == 1) {
@@ -20,6 +22,9 @@
         mysqli_close($conn);
    
    header('Location: login.php');
+      } else {
+         header('Location: cadastroCandidato.php?cadastro=erro');
+      }
   }
 ?>
 
@@ -58,7 +63,15 @@
             <input name="email" class="email" type="email" placeholder="email" required>
             <input name="telefone" type="text" placeholder="telefone" required>
             <input name="senha" type="password" placeholder="senha" required>
-            <input type="password" placeholder="confirmar senha" required>
+            <input name="confirmar" type="password" placeholder="confirmar senha" required>
+            <?php
+            if(isset($_GET['cadastro'])) {
+               if($_GET['cadastro'] == 'erro') {
+                  print_r('<div role="alert">
+                  <p style="color: red; font-weight: bold;">Repita a senha corretamente!</p>
+                </div>');
+               }
+            }?>
             <input name="cidade" type="text" placeholder="cidade" required>
             <input name="estado" type="text" placeholder="estado" required>
             <button name="submit1" type="submit" method="POST">Efetuar Cadastro</button>

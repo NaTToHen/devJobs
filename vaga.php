@@ -79,8 +79,10 @@
 
   <div id="conteudo">
       <div id="topo">
-         <h1 class="nome"><?php echo $nome?></h1>
-         <h2 class="cidade"><?php echo $cidade . "-" . $estado?></h2>
+         <div id="nomeCidade">
+           <h1 class="nome"><?php echo $nome?></h1>
+           <h2 class="cidade"><?php echo $cidade . "-" . $estado?></h2>
+         </div>
          <h1 class="salario"><?php echo "R$" . $salario?></h1>
          <button class="botao btn btn-primary"><a class="" href="vaga.html" role="button" style="color: white;">Se candidatar</a></button>
       </div>

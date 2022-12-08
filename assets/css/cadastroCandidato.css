@@ -83,6 +83,18 @@ body {
    height: 100vh;
 }
 
+textarea {
+   display: block;
+   padding: 5px;
+   
+   width: 70%;
+   height: 35px;
+   border: solid 1px rgb(197, 197, 197);
+   border-radius: 5px;
+   outline: none;
+   margin-bottom: 15px;
+}
+
 input[type="text"], input[type="password"], input[type="email"] {
    display: block;
    padding: 5px;
