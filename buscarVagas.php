@@ -1,11 +1,21 @@
 <?php
-  include("lib/conexao.php")
+  include("lib/conexao.php");
+
+  if(!isset($_GET['vaga_pesquisada'])) {
+    header("Location: index.php");
+  }
+
+  $pesquisado = $_GET['vaga_pesquisada'];
+
+  $sqlLista = "SELECT * FROM vaga WHERE nome_vaga LIKE '%$pesquisado%'";
+  $resultLista = $conn->query($sqlLista);
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>DevJobs - Home</title>
+    <title>DevJobs - Vagas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,7 +30,7 @@
     <link rel="shortcut icon" href="img/icone.ico" type="image/x-icon">
 </head>
 
-<body style="">
+<body>
 
   <header>
         <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-white">
@@ -56,36 +66,23 @@
         </nav>
   </header>
 
-  <div id="icones">
-      <h1 class="h12">valor pesquisado</h1>
-      <div id="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga"><a class="btn" href="vaga.html" role="button" style="color: white;">Saiba mais</a></button>
-         </div>
-      </div>
-      <div id="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga"><a class="btn" href="vaga.html" role="button" style="color: white;">Saiba mais</a></button>
-         </div>
-      </div>
-      <div id="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga"><a class="btn" href="vaga.html" role="button" style="color: white;">Saiba mais</a></button>
-         </div>
-      </div>
-   
+  <div id="icones" style="margin-top: 90px;">
+    <h1 class="h12"><?php echo $pesquisado?></h1>
+    <?php
+      while($user_data = $resultLista->fetch_array()) {
+      echo "<a href='vaga.php?id=$user_data[id_vaga]' class='hoverVaga'>
+        <div class='gridVagas'>
+            <div class='vaga'>
+                <h2>$user_data[nome_vaga]</h2>
+                <h3>$user_data[empresa_vaga]</h3>
+                <h2>$user_data[cidade] - $user_data[estado]</h2>
+                <h2 class='salario'>R$ $user_data[salario_vaga] / mês</h2>
+                <button class='infoVaga' type='submit'>Saiba Mais</button>
+            </div>
+           </div>
+      </a>";
+          }
+         ?>
   </div>
 
   <footer>

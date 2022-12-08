@@ -1,9 +1,8 @@
 <?php
-
-  if(isset($_POST['submit']))
+  if(isset($_POST['submit1']))
   {
-   include_once("lib/conexao.php");
-
+   include("lib/conexao.php");
+   
    $nome = $_POST['nome'];
    $email = $_POST['email'];
    $telefone = $_POST['telefone'];
@@ -12,12 +11,16 @@
    $estado = $_POST['estado'];
 
    $result = mysqli_query($conn, "INSERT INTO usuario(nome_usuario, email_usuario, senha_usuario, telefone_usuario, cidade, estado) VALUES ('$nome','$email','$senha','$telefone','$cidade','$estado')");
+
+        if(mysqli_affected_rows($conn) == 1) {
+            sleep(2);
+        } else {
+            echo "Erro, não possível inserir no banco de dados";
+        }
+        mysqli_close($conn);
    
    header('Location: login.php');
   }
-
-  
-  
 ?>
 
 <!DOCTYPE html>
@@ -58,13 +61,7 @@
             <input type="password" placeholder="confirmar senha" required>
             <input name="cidade" type="text" placeholder="cidade" required>
             <input name="estado" type="text" placeholder="estado" required>
-            <br>
-            <input type="radio" name="pessoa" id="pessoa" checked>
-            <label for="pessoa" style="margin-right: 20px;">Candidato</label>
-            <input type="radio" name="empresa" id="empresa">
-            <label for="empresa">Empresa</label>
-            <br>
-            <button name="submit" type="submit">Efetuar Cadastro</button>
+            <button name="submit1" type="submit" method="POST">Efetuar Cadastro</button>
             <p>Ainda não possui uma conta? <a href="login.php">Efetuar login</a>.</p>
          </form>
       </div>

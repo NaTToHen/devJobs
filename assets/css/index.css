@@ -7,6 +7,11 @@
    border-radius: 0px;
 }
 
+body {
+   display: flex;
+   flex-direction: column;
+}
+
 nav {
    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
@@ -47,12 +52,12 @@ nav {
    font-weight: bold;
 }
 
-input {
+#pesquisar {
    padding: 7px;
    font-size: 24px;
    margin-top: 70px;
-   margin-left: 23%;
-   width: 500px;
+   margin-left: 27%;
+   width: 650px;
    height: 40px;
    border-radius: 10px;
    background: #fff;
@@ -87,9 +92,12 @@ select {
    border: none;
 }
 
+main {
+   flex: 1 0 auto;
+}
+
 #icones {
    margin-top: 90px;
-   margin-bottom: 90px;
 }
 
 #icones h1 {
@@ -121,15 +129,27 @@ select {
    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
 }
 
+.hoverVaga {
+   text-decoration-color: black;
+}
+
+.hoverVaga:hover {
+   text-decoration-color: rgba(0, 0, 0, 0);
+}
+
 .vaga {
    position: relative;
-   background: #ffffff;
+   background: #efefef;
    width: 80%;
-   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
    margin-left: 10%;
    margin-top: 20px;
    border-radius: 15px;
    height: 130px;
+}
+
+.vaga:hover {
+   cursor: pointer;;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
 .vaga h2 {
@@ -172,7 +192,7 @@ select {
 #menu {
    float: left;
    width: 250px;
-   height: 90.7vh;
+   height: 150vh;
    background: linear-gradient(180deg, #001D85 0%, #0038FF 100%);
 }
 
@@ -182,16 +202,17 @@ select {
    list-style: none;
 }
 
-#menu a img {
+#menu p img {
    margin-right: 5px;
 }
 
-#menu li a {
+#menu li p {
    color: #ffffff;
    font-size: 17px;
 }
 
-#menu li a:hover {
+#menu li p:hover {
+   cursor: pointer;
    text-decoration: none;
    font-weight: bold;
 }
@@ -201,27 +222,98 @@ select {
 }
 
 .addVaga {
+   border: none;
+   background: none;
+   padding: 5px;
+   border-radius: 5px;
+   width: 110px;
+   height: 35px;
+   color: black;
    position: absolute;
    top: 90px;
    left: 300px;
-   color: black;
    font-size: 20px;
+   outline: none;
+}
+
+textarea {
+   margin-bottom: 10px;
+   max-height: 120px;
 }
 
 .addVaga:hover {
-   color: black;
-   text-decoration: none;
-   font-weight: bold;
+   transition: all 0.3s;
+   color: #0038FF;
 }
 
-#tabela {
+.vagas, .usuarios {
+   display: none;
    position: absolute;
    left: 22%;
    margin-top: 110px;
-   width: 70%;
+   width: 75%;
 }
 
 td a {
    margin-right: 10px;
 }
 
+#fundoModal {
+   position: absolute;
+   z-index: 9;
+   width: 100vw;
+   height: 100vh;
+   background-color: hsla(0, 0%, 0%, 0.275);
+   display: none;
+}
+
+#modal {
+   z-index: 10;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 700px;
+   min-height: 650px;
+   background-color: #ffffff;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+   display: none;
+}
+
+#modal form {
+   position: absolute;
+   top: 54%;
+   left: 48%;
+   transform: translate(-50%, -50%);
+   width: 75%;
+}
+
+#modal input {
+   margin-bottom: 10px;
+}
+
+#modal #desq {
+   margin-bottom: 10px;
+}
+
+.cadastrar {
+   width: 100%;
+}
+
+.btnSair {
+   border: none;
+   float: right;
+   margin: 10px;
+}
+
+#tabela {
+   margin-top: 190px;
+}
+
+.titulo-modal {
+   margin-top: 30px;
+   margin-left: 5%;
+   text-align: center;
+   font-size: 22px;
+}

@@ -1,5 +1,9 @@
 <?php
-  include("lib/conexao.php")
+  include("lib/conexao.php");
+
+  $sqlLista = "SELECT * FROM vaga ORDER BY id_vaga LIMIT 6";
+  $resultLista = $conn->query($sqlLista);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,62 +60,46 @@
          </div>
        </nav>
   </header>
+  <main>
+    <div id="topo">
+        <img src="img/fundo.png" width="100%" height="550px" alt="">
+        <h1 class="tituloTopo">Cadastro rápido e fácil. Aqui a vaga procura você!</h1>
+        <form action="buscarVagas.php" method="get"><input type="text" placeholder="Encontre a sua vaga" name="vaga_pesquisada" id="pesquisar">
+        <br>
+        <button type="submit" name="submit">Buscar Vaga</button>
+      </form>
+    </div>
 
-  <div id="topo">
-      <img src="img/fundo.png" width="100%" height="550px" alt="">
-      <h1 class="tituloTopo">Cadastro rápido e fácil. Aqui a vaga procura você!</h1>
-      <input type="text" placeholder="Encontre a sua vaga" name="vaga">
-      <select name="niveis" id="niveis">
-         <option value="Niveis">Niveis</option>
-         <option value="Estagio">Estagio</option>
-         <option value="Junior">Junior</option>
-         <option value="Pleno">Pleno</option>
-         <option value="Senior">Senior</option>
-      </select><br>
-      <button type="submit" name="pesquisar"><a href="buscarVagas.php">Buscar vaga</a></button>
-  </div>
-
-  <div id="icones">
-      <h1>Vagas em todas as linguagens</h1>
-      <div id="gridIcones">
-         <img src="img/image 1.png" alt="">
-         <img src="img/image 2.png" alt="">
-         <img src="img/image 3.png" alt="">
-         <img src="img/image 4.png" alt="">
-         <img src="img/image 5.png" alt="">
-         <img src="img/vscode-icons_file-type-css.png" alt="">
-         <img src="img/vscode-icons_file-type-html.png" alt="">
-         <img src="img/logos_javascript.png" alt="">
-      </div>
-      <h1 class="h12">Vagas recentes</h1>
-      <div class="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga" type="submit">Saiba Mais</button>
-         </div>
-      </div>
-      <div class="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga"  type="submit">Saiba Mais</button>
-         </div>
-      </div>
-      <div class="gridVagas">
-         <div class="vaga">
-            <h2>desenvolvedor php</h2>
-            <h3>Teck tecnologias</h3>
-            <h2>São paulo - SP</h2>
-            <h2 class="salario">R$ 3000,00</h2>
-            <button class="infoVaga" type="submit">Saiba Mais</button>
-         </div>
-      </div>
-  </div>
+    <div id="icones">
+        <h1>Vagas em todas as linguagens</h1>
+        <div id="gridIcones">
+          <img src="img/image 1.png" alt="">
+          <img src="img/image 2.png" alt="">
+          <img src="img/image 3.png" alt="">
+          <img src="img/image 4.png" alt="">
+          <img src="img/image 5.png" alt="">
+          <img src="img/vscode-icons_file-type-css.png" alt="">
+          <img src="img/vscode-icons_file-type-html.png" alt="">
+          <img src="img/logos_javascript.png" alt="">
+        </div>
+        <h1 class="h12">Vagas recentes</h1>
+        <?php
+        while($user_data = $resultLista->fetch_array()) {
+        echo "<a href='vaga.php?id=$user_data[id_vaga]' class='hoverVaga'>
+        <div class='gridVagas'>
+            <div class='vaga'>
+                <h2>$user_data[nome_vaga]</h2>
+                <h3>$user_data[empresa_vaga]</h3>
+                <h2>$user_data[cidade] - $user_data[estado]</h2>
+                <h2 class='salario'>R$ $user_data[salario_vaga] / mês</h2>
+                <button class='infoVaga' type='submit'>Saiba Mais</button>
+            </div>
+           </div>
+      </a>";
+            }
+          ?>
+    </div>
+  </main>
 
   <footer>
     <div>

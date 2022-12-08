@@ -39,7 +39,7 @@
          </div>
          <a href="" class="esqueceu">Esqueçeu a senha?</a>
       </div>
-      <p class="info">É novo na DevJobs? Cadastre-se como <a href="cadastroCandidato.php">Candidato</a> ou <a href="cadastroEmpresa.php">Empresa</a>.</p>
+      <p class="info">É novo na DevJobs? Cadastre-se como <a href="cadastroCandidato.php">Candidato</a>.</p>
    </div>
 
 

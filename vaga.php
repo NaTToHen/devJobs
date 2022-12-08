@@ -1,3 +1,27 @@
+<?php 
+   if(!empty($_GET['id']))
+   {
+      include("lib/conexao.php");
+
+      $id = $_GET['id'];
+
+      $sqlcode = "SELECT * FROM vaga WHERE id_vaga=$id";
+      $result = $conn->query($sqlcode);
+
+      if($result->num_rows > 0) {
+         while($user_data = $result->fetch_array()) {
+            $nome = $user_data['nome_vaga'];
+            $empresa = $user_data['empresa_vaga'];
+            $desc = $user_data['desc_vaga'];
+            $salario = $user_data['salario_vaga'];
+            $cidade = $user_data['cidade'];
+            $estado = $user_data['estado'];
+         }
+      } else {
+        echo "erro";
+      }
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -55,15 +79,15 @@
 
   <div id="conteudo">
       <div id="topo">
-         <h1 class="nome">nome da vaga</h1>
-         <h2 class="cidade">cidade - TS</h2>
-         <h1 class="salario">R$ 2000,00/mes</h1>
+         <h1 class="nome"><?php echo $nome?></h1>
+         <h2 class="cidade"><?php echo $cidade . "-" . $estado?></h2>
+         <h1 class="salario"><?php echo "R$" . $salario?></h1>
          <button class="botao btn btn-primary"><a class="" href="vaga.html" role="button" style="color: white;">Se candidatar</a></button>
       </div>
       <div>
          <h1 id="desc">Descrição</h1>
-         <p>Empresa localizada na cidade de São Paulo/SP do ramo Informática, contrata Desenvolvedor. Atribuições Devenvolvedores, estamos com oportunidades: Desenvolvedor fullstack java angular 6+ desenvolvedor fullstack java angular js desenvolvedor front angular desenvolvedor backend (java + springboot) Tipo de Vínculo Efetivo - Home Office.</p>
-         <h1 id="desc">Empresa</h1>
+         <p><?php echo $desc?></p>
+         <h1 id="desc"><?php echo $empresa?></h1>
          <div class="empresa">
             <img src="img/logo empresa.png" alt="" width="170px" height="170px" class="imgEmpresa">
             <p class="descEmpresa">Empresa localizada na cidade de São Paulo/SP do ramo Informática, contrata Desenvolvedor. Atribuições Devenvolvedores, estamos com oportunidades: Desenvolvedor fullstack java angular 6+ desenvolvedor fullstack java angular js desenvolvedor front angular desenvolvedor backend (java + springboot) Tipo de Vínculo Efetivo - Home Office.</p>
