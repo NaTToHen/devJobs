@@ -236,9 +236,28 @@ main {
    outline: none;
 }
 
+.addUser {
+   border: none;
+   background: none;
+   padding: 5px;
+   border-radius: 5px;
+   height: 35px;
+   color: black;
+   position: absolute;
+   top: 93px;
+   left: 430px;
+   font-size: 18px;
+   outline: none;
+}
+
 textarea {
    margin-bottom: 10px;
    max-height: 120px;
+}
+
+.addUser:hover {
+   transition: all 0.3s;
+   color: #0038FF;
 }
 
 .addVaga:hover {

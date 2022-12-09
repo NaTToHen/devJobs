@@ -1,8 +1,10 @@
 <?php
+   
    if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
    {
       include_once('conexao.php');
-
+      session_start();
+      
       $email = $_POST['email'];
       $senha = $_POST['senha'];
 
@@ -15,14 +17,12 @@
       {
          if(mysqli_num_rows($result) < 1)
          {
-            //unset($_SESSION['email']);//destroi a sessão
-            //unset($_SESSION['senha']);
+            unset($_SESSION['email']);//destroi a sessão
             header('Location: ../login.php?login=erro');
          }
          else
          {
-            //$_SESSION['email'] = $email;
-            //$_SESSION['senha'] = $senha;
+            $_SESSION['email'] = $email;
             header('Location: ../adminVagas.php?login=ok');
          }
       } else {

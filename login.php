@@ -1,4 +1,8 @@
-<?php include('lib/conexao.php'); ?>
+<?php
+include('lib/conexao.php');
+session_start();
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

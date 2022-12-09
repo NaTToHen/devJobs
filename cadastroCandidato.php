@@ -64,6 +64,8 @@
             <input name="telefone" type="text" placeholder="telefone" required>
             <input name="senha" type="password" placeholder="senha" required>
             <input name="confirmar" type="password" placeholder="confirmar senha" required>
+            <input name="cidade" type="text" placeholder="cidade" required>
+            <input name="estado" type="text" placeholder="estado" required>
             <?php
             if(isset($_GET['cadastro'])) {
                if($_GET['cadastro'] == 'erro') {
@@ -72,10 +74,8 @@
                 </div>');
                }
             }?>
-            <input name="cidade" type="text" placeholder="cidade" required>
-            <input name="estado" type="text" placeholder="estado" required>
             <button name="submit1" type="submit" method="POST">Efetuar Cadastro</button>
-            <p>Ainda não possui uma conta? <a href="login.php">Efetuar login</a>.</p>
+            <p class="link">Ainda não possui uma conta? <a href="login.php">Efetuar login</a>.</p>
          </form>
       </div>
    </div>

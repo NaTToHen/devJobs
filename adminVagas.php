@@ -1,5 +1,17 @@
 <?php
   include_once("lib/conexao.php");
+  session_start();
+
+  function fecharSessao() {
+    unset($_SESSION['email']);
+  }
+
+  if(!isset($_SESSION['email']) == true) {
+    unset($_SESSION['email']);
+    header('Location: login.php');
+  }
+
+  $logado = $_SESSION['email'];
 
   if(isset($_POST['submit']))
   {
@@ -53,7 +65,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-               <a class="btn btn-danger" href="login.php" role="button">Sair</a>
+              <?php echo '<a class="btn btn-danger" href="lib/deslogar.php?token='.md5($_SESSION['email']).'" role="button">Sair</a>' ?>
             </ul>
           </div>
         </nav>
@@ -69,6 +81,7 @@
   </div>
 
   <button class="addVaga" onclick="abrirModal()">Criar vaga</button>
+  <a href="cadastroCandidato.php"><button class="addUser">Criar usuario</button></a>
 
     <div id="modal">
       <button type="submit" class="btn btn-outline-danger btnSair" onclick="fecharModal()" name="sair" id="fechar">X</button>

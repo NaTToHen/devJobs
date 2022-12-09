@@ -1,7 +1,8 @@
 <?php
   include("lib/conexao.php");
+  session_start();
 
-  $sqlLista = "SELECT * FROM vaga ORDER BY id_vaga DESC LIMIT 6";
+  $sqlLista = "SELECT * FROM vaga ORDER BY id_vaga DESC LIMIT 5";
   $resultLista = $conn->query($sqlLista);
 
 ?>
@@ -55,11 +56,17 @@
                  <a class="dropdown-item" href="#">Gerenciar Empresa</a>
                </div>
              </li>
-             <a class="btn btn-primary" href="login.php" role="button">Entrar</a>
+             <a class="btn btn-primary" href="login.php" role="button" <?php if(isset($_SESSION['email'])) {echo "style= 'display: none;'";} ?>>Entrar</a>
+            <?php
+            if(isset($_SESSION['email'])) {
+              echo '<a class="btn btn-danger" href="lib/deslogar.php?token='.md5($_SESSION['email']).'" role="button">Sair</a>';
+            }
+            ?>
            </ul>
          </div>
        </nav>
   </header>
+
   <main>
     <div id="topo">
         <img src="img/fundo.png" width="100%" height="550px" alt="">
